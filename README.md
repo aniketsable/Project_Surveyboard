@@ -4,6 +4,11 @@
 
 Welcome to **SurveyBoard**, an innovative online survey system designed to help businesses effortlessly gather feedback, analyze results graphically, and make data-driven decisions. This project focuses on building a robust, responsive web application that allows users to create and publish surveys in minutes, view real-time results, and understand their target audience better.
 
+### Homepage Overview
+
+![Homepage Overview](https://github.com/aniketsable/Project_Surveyboard/blob/main/Presentation/Overview%20Homepage.png)
+
+
 ## ✨ Features
 
 *   **Intuitive Survey Creation**: Easily design and publish online surveys with various question types (radio, checkbox, dropdown, textarea).
@@ -91,3 +96,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 Aniket Sable - [https://github.com/aniketsable](https://github.com/aniketsable)
 
 Project Link: [https://github.com/aniketsable/Project_Surveyboard](https://github.com/aniketsable/Project_Surveyboard)
+
