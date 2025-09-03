@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SurveyBoard - Online Survey System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-poll"></i>
+                    <span>SurveyBoard</span>
+                </div>
+                
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav id="nav">
+                    <ul>
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">Surveys</a></li>
+                        <li><a href="#">Results</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="auth-buttons">
+                    <button class="btn-outline">Login</button>
+                    <button>Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Create & Publish Online Surveys in Minutes</h1>
+            <p>SurveyBoard helps you gather feedback, analyze results graphically, and make data-driven decisions for your business.</p>
+            <button class="cta-button" id="create-survey-btn">Create a Survey <i class="fas fa-arrow-right"></i></button>
+        </section>
+
+        <!-- Featured Surveys -->
+        <section>
+            <h2 class="section-title">Featured Surveys</h2>
+            <div class="survey-grid" id="survey-grid">
+                <!-- Surveys will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Survey Form Example -->
+        <section>
+            <h2 class="section-title">Example Survey</h2>
+            <div class="form-container">
+                <h3 class="text-center">Customer Feedback Survey</h3>
+                <p class="text-center mb-2">Your opinion matters to us! Please take a few minutes to complete this survey.</p>
+                
+                <form id="survey-form">
+                    <div class="form-group">
+                        <label>How often do you use our product?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="daily" name="usage" value="daily" required>
+                                <label for="daily">Daily</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="weekly" name="usage" value="weekly">
+                                <label for="weekly">Weekly</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="monthly" name="usage" value="monthly">
+                                <label for="monthly">Monthly</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="rarely" name="usage" value="rarely">
+                                <label for="rarely">Rarely</label>
+                            </div>
+                        </div>
+                        <span class="error-message" id="usage-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Which features do you value the most? (Select all that apply)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="feature1" name="features" value="ease-of-use">
+                                <label for="feature1">Ease of use</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="feature2" name="features" value="performance">
+                                <label for="feature2">Performance</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="feature3" name="features" value="design">
+                                <label for="feature3">Design</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="feature4" name="features" value="price">
+                                <label for="feature4">Price</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="satisfaction">How satisfied are you with our product?</label>
+                        <select class="form-control" id="satisfaction" name="satisfaction" required>
+                            <option value="">Please select...</option>
+                            <option value="very-satisfied">Very satisfied</option>
+                            <option value="satisfied">Satisfied</option>
+                            <option value="neutral">Neutral</option>
+                            <option value="unsatisfied">Unsatisfied</option>
+                            <option value="very-unsatisfied">Very unsatisfied</option>
+                        </select>
+                        <span class="error-message" id="satisfaction-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comments">What can we do to improve our product?</label>
+                        <textarea class="form-control" id="comments" name="comments" rows="4"></textarea>
+                    </div>
+                    
+                    <button type="submit" id="submit-survey">Submit Survey</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Results Visualization -->
+        <section>
+            <h2 class="section-title">Survey Results</h2>
+            <div class="chart-container">
+                <h3 class="text-center">Customer Satisfaction Results</h3>
+                <p class="text-center mb-2">Graphical representation of survey responses from 1,245 participants</p>
+                <div class="chart" id="results-chart">
+                    <canvas id="surveyChart"></canvas>
+                </div>
+                <div class="text-center">
+                    <button id="download-results"><i class="fas fa-download"></i> Download Results</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="container">
+        <p>© 2025 SurveyBoard - Survey System. All rights reserved.</p>
+        <p>Responsive Web Design Project</p>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle toast-icon"></i>
+            <div class="toast-message"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script/app.js"></script>
+</body>
+</html>
